@@ -1,5 +1,11 @@
 ### Changelog
 
+#### [0.1.2](https://github.com/plumdog/cdk-10to12/compare/0.1.1...0.1.2)
+
+> 28 February 2022
+
+- S3 notifications test and fix [`#3`](https://github.com/plumdog/cdk-10to12/pull/3)
+
 #### [0.1.1](https://github.com/plumdog/cdk-10to12/compare/0.1.0...0.1.1)
 
 > 28 February 2022

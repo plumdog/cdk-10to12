@@ -1,6 +1,6 @@
 {
     "name": "cdk-10to12",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "Hack all node10 Lambdas to use node12",
     "license": "MIT",
     "author": "",
