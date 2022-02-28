@@ -3,7 +3,9 @@ import * as lambda from '@aws-cdk/aws-lambda';
 
 const fixConstructIfRequired = (construct: cdk.IConstruct): void => {
     if (construct instanceof lambda.CfnFunction) {
-        construct.addPropertyOverride('Runtime', lambda.Runtime.NODEJS_12_X.toString());
+        if (construct.runtime === 'nodejs10.x') {
+            construct.addPropertyOverride('Runtime', lambda.Runtime.NODEJS_12_X.toString());
+        }
     }
 };
 
