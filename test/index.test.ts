@@ -38,6 +38,33 @@ test('updates old lambda', () => {
     );
 });
 
+test('does not update non-node lambda', () => {
+    const stack = new cdk.Stack();
+
+    new lambda.Function(stack, 'MyFunction', {
+        functionName: 'MyFunction',
+        runtime: lambda.Runtime.PYTHON_2_7,
+        code,
+        handler: 'main',
+    });
+
+    cdkExpect(stack).to(
+        haveResource('AWS::Lambda::Function', {
+            FunctionName: 'MyFunction',
+            Runtime: 'python2.7',
+        }),
+    );
+
+    cdk10to12(stack);
+
+    cdkExpect(stack).to(
+        haveResource('AWS::Lambda::Function', {
+            FunctionName: 'MyFunction',
+            Runtime: 'python2.7',
+        }),
+    );
+});
+
 test('handles nested lambda', () => {
     const stack = new cdk.Stack();
 
