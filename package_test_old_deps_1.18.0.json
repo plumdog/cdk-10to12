@@ -8,6 +8,8 @@
         "@types/node": ">=10",
         "@aws-cdk/assert": "1.18.0",
         "@aws-cdk/aws-lambda": "1.18.0",
+        "@aws-cdk/aws-s3": "1.18.0",
+        "@aws-cdk/aws-s3-notifications": "1.18.0",
         "@aws-cdk/core": "1.18.0",
         "typescript": ">=3.0.0",
         "jest": "24.9.0",
