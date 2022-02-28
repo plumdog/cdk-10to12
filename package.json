@@ -1,6 +1,6 @@
 {
     "name": "cdk-10to12",
-    "version": "0.0.0",
+    "version": "0.1.0",
     "description": "Hack all node10 Lambdas to use node12",
     "license": "MIT",
     "author": "",
@@ -34,7 +34,6 @@
         "auto-changelog": "^1.16.2",
         "@aws-cdk/aws-lambda": "^1.18.0",
         "@aws-cdk/core": "^1.18.0",
-        "typescript": ">=3.0.0",
         "jest": "^26.0.0",
         "ts-jest": "^26.0.0",
         "eslint": "6.8.0",
