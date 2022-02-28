@@ -21,7 +21,7 @@
         "version": "auto-changelog --template ./changelog_template.hbs -p && git add CHANGELOG.md",
         "lint": "eslint 'index.ts' 'test/**/*.ts' jest.config.js --fix",
         "lint-check": "eslint 'index.ts' 'test/**/*.ts' jest.config.js --max-warnings 0",
-        "test-old-dependencies": "rm -rf _test_old_dependencies/ && mkdir _test_old_dependencies/ && cp -R index.ts test/ jest.config.js tsconfig.json ./_test_old_dependencies/ && cp package_test_old_deps.json ./_test_old_dependencies/package.json && (cd _test_old_dependencies/ && npm i && npm run test)"
+        "test-old-dependencies": "rm -rf _test_old_dependencies/ && mkdir _test_old_dependencies/ && cp -R index.ts test/ jest.config.js tsconfig.json ./_test_old_dependencies/ && cp package_test_old_deps_$OLD_CDK_VERSION.json ./_test_old_dependencies/package.json && (cd _test_old_dependencies/ && npm i && npm run test)"
     },
     "peerDependencies": {
         "@aws-cdk/aws-lambda": "^1.18.0",
@@ -33,6 +33,8 @@
         "@aws-cdk/assert": "^1.18.0",
         "auto-changelog": "^1.16.2",
         "@aws-cdk/aws-lambda": "^1.18.0",
+        "@aws-cdk/aws-s3": "^1.18.0",
+        "@aws-cdk/aws-s3-notifications": "^1.18.0",
         "@aws-cdk/core": "^1.18.0",
         "jest": "^26.0.0",
         "ts-jest": "^26.0.0",

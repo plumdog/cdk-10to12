@@ -3,6 +3,9 @@ import * as cdk from '@aws-cdk/core';
 import '@aws-cdk/assert/jest';
 import { cdk10to12 } from '..';
 import * as lambda from '@aws-cdk/aws-lambda';
+import * as s3 from '@aws-cdk/aws-s3';
+import * as s3Notifications from '@aws-cdk/aws-s3-notifications';
+import * as sns from '@aws-cdk/aws-sns';
 
 test('handles empty stack', () => {
     const stack = new cdk.Stack();
@@ -91,6 +94,23 @@ test('handles nested lambda', () => {
         haveResource('AWS::Lambda::Function', {
             FunctionName: 'MyFunction',
             Runtime: 'nodejs12.x',
+        }),
+    );
+});
+
+test('handles s3 notification lambda', () => {
+    const stack = new cdk.Stack();
+
+    const bucket = new s3.Bucket(stack, 'MyBucket', {});
+    const topic = new sns.Topic(stack, 'MyTopic', {});
+
+    bucket.addEventNotification(s3.EventType.OBJECT_CREATED, new s3Notifications.SnsDestination(topic));
+
+    cdk10to12(stack);
+
+    cdkExpect(stack).notTo(
+        haveResource('AWS::Lambda::Function', {
+            Runtime: 'nodejs10.x',
         }),
     );
 });

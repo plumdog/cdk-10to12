@@ -1,0 +1,19 @@
+{
+    "name": "cdk-10to12-test",
+    "version": "0.0.0",
+    "scripts": {
+        "test": "jest"
+    },
+    "devDependencies": {
+        "@types/node": ">=10",
+        "@aws-cdk/assert": "1.87.1",
+        "@aws-cdk/aws-lambda": "1.87.1",
+        "@aws-cdk/aws-s3": "1.87.1",
+        "@aws-cdk/aws-s3-notifications": "1.87.1",
+        "@aws-cdk/core": "1.87.1",
+        "typescript": ">=3.0.0",
+        "jest": "^26.0.0",
+        "ts-jest": "^26.0.0",
+        "@types/jest": "^26.0.0"
+    }
+}
